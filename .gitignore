@@ -1,3 +1,5 @@
 *.zip
+!dumpsql.zip
 *.csv
 *.pdf
+dumpsql
