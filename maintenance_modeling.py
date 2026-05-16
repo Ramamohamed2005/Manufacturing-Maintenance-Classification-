@@ -38,7 +38,7 @@ def get_database_url() -> str:
         return explicit_url
 
     user = os.getenv("DB_USER", "postgres")
-    password = quote_plus(os.getenv("DB_PASSWORD", "Rana@2019!"))
+    password = quote_plus(os.getenv("DB_PASSWORD", "1234"))
     host = os.getenv("DB_HOST", "localhost")
     port = os.getenv("DB_PORT", "5432")
     database = os.getenv("DB_NAME", "predictive_maintenance_dwh")

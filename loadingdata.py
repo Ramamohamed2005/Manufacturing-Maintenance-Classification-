@@ -7,7 +7,7 @@ from urllib.parse import quote_plus
 import json
 
 
-DB_PASSWORD = "Rana@2019!" 
+DB_PASSWORD = "1234" 
 encoded_password = quote_plus(DB_PASSWORD) 
 
 DB_CONNECTION = f"postgresql://postgres:{encoded_password}@localhost:5432/predictive_maintenance_dwh"
