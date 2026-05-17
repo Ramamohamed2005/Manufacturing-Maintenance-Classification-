@@ -1,0 +1,118 @@
+{
+  "notebook": "unsupervised_metropt3",
+  "generated_at": "2026-05-17T04:08:28.536208Z",
+  "task": "unsupervised_anomaly_detection",
+  "dataset": "MetroPT3 \u2014 Porto Metro Air Production Unit",
+  "note": "No ground-truth labels used during training. Known failure windows applied post-hoc for evaluation only.",
+  "total_rows": 1516948,
+  "training_rows": 477752,
+  "known_failure_rows": 57257,
+  "known_failure_rate": 3.7745,
+  "failure_windows": [
+    {
+      "start": "2020-04-07",
+      "end": "2020-04-09",
+      "description": "Air leak #1 \u2014 oil/water separator"
+    },
+    {
+      "start": "2020-05-04",
+      "end": "2020-05-06",
+      "description": "Air leak #2 \u2014 pressure relief valve"
+    },
+    {
+      "start": "2020-07-14",
+      "end": "2020-07-16",
+      "description": "Air leak #3 \u2014 electro-pneumatic panel"
+    },
+    {
+      "start": "2020-07-29",
+      "end": "2020-07-31",
+      "description": "Air leak #4 \u2014 compressor crankcase"
+    }
+  ],
+  "algorithms": [
+    "Isolation Forest",
+    "Autoencoder (MLP)",
+    "DBSCAN",
+    "Ensemble"
+  ],
+  "results": [
+    {
+      "model": "Isolation Forest",
+      "f1": 0.052212,
+      "roc_auc": 0.474372,
+      "avg_precision": 0.040458,
+      "recall": 0.083571,
+      "precision": 0.037966,
+      "flagged_pct": 8.308459,
+      "confusion_matrix": [
+        [
+          1338441,
+          121250
+        ],
+        [
+          52472,
+          4785
+        ]
+      ]
+    },
+    {
+      "model": "Autoencoder",
+      "f1": 0.074652,
+      "roc_auc": 0.457449,
+      "avg_precision": 0.060124,
+      "recall": 0.138219,
+      "precision": 0.051135,
+      "flagged_pct": 10.202525,
+      "confusion_matrix": [
+        [
+          1312838,
+          146853
+        ],
+        [
+          49343,
+          7914
+        ]
+      ]
+    },
+    {
+      "model": "DBSCAN",
+      "f1": 0.07116,
+      "roc_auc": 0.516775,
+      "avg_precision": 0.044834,
+      "recall": 0.484989,
+      "precision": 0.038397,
+      "flagged_pct": 47.675332,
+      "confusion_matrix": [
+        [
+          764250,
+          695441
+        ],
+        [
+          29488,
+          27769
+        ]
+      ]
+    },
+    {
+      "model": "Ensemble",
+      "f1": 0.077406,
+      "roc_auc": 0.474711,
+      "avg_precision": 0.042218,
+      "recall": 0.172031,
+      "precision": 0.049938,
+      "flagged_pct": 13.002819,
+      "confusion_matrix": [
+        [
+          1272295,
+          187396
+        ],
+        [
+          47407,
+          9850
+        ]
+      ]
+    }
+  ],
+  "best_model": "DBSCAN"
+}
